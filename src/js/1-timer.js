@@ -1,8 +1,8 @@
 import flatpickr from 'flatpickr';
-
 import 'flatpickr/dist/flatpickr.min.css';
 
 import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const inputRef = document.querySelector('#datetime-picker');
 const startRef = document.querySelector('button[data-start]');
@@ -13,7 +13,7 @@ const dayRef = document.querySelector('[data-days]');
 
 startRef.addEventListener('click', onStart);
 
-let timerId = null;
+let timerId;
 let currentDate;
 let selectedDate;
 
@@ -28,9 +28,10 @@ const options = {
 
     if (selectedDate < startTime) {
       startRef.setAttribute('disabled', true);
-      iziToast.warning({
-        title: 'Caution',
-        message: 'You forgot important data',
+      iziToast.error({
+        title: '',
+        message: 'Please, choose a date in the future',
+        position: 'bottomLeft',
       });
     }
     if (selectedDate > startTime) {
