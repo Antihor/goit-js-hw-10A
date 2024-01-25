@@ -11,6 +11,7 @@ const minRef = document.querySelector('[data-minutes]');
 const hourRef = document.querySelector('[data-hours]');
 const dayRef = document.querySelector('[data-days]');
 
+startRef.setAttribute('disabled', true);
 startRef.addEventListener('click', onStart);
 
 let timerId;
@@ -31,7 +32,7 @@ const options = {
       iziToast.error({
         title: '',
         message: 'Please, choose a date in the future',
-        position: 'bottomLeft',
+        position: 'topCenter',
       });
     }
     if (selectedDate > startTime) {
@@ -44,7 +45,6 @@ const options = {
 
 function onStart() {
   inputRef.setAttribute('disabled', 'true');
-  startRef.setAttribute('disabled', 'true');
   timerId = setInterval(() => {
     const currentStart = Date.now();
     const TIME = currentDate - currentStart;
