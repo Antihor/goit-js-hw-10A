@@ -36,7 +36,7 @@ const options = {
       });
     }
     if (selectedDate > startTime) {
-      startRef.removeAttribute('disabled', true);
+      startRef.removeAttribute('disabled');
     }
 
     currentDate = new Date(selectedDate);

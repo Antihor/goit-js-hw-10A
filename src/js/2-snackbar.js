@@ -15,18 +15,16 @@ function onSubmit(ev) {
     .then(({ delay }) => {
       iziToast.success({
         title: '',
-        message: `'✅ Fulfilled promise in ${delay} ms'`,
+        message: `✅ Fulfilled promise in ${delay} ms`,
         position: 'topCenter',
       });
-      console.log(`✅ Fulfilled promise in ${delay} ms`);
     })
     .catch(({ delay }) => {
       iziToast.error({
         title: '',
-        message: `'❌ Rejected promise in ${delay} ms'`,
+        message: `❌ Rejected promise in ${delay} ms`,
         position: 'topCenter',
       });
-      console.log(`❌ Rejected promise in ${delay} ms`);
     });
 
   ev.target.reset();
